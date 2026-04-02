@@ -1,0 +1,136 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #2d2b55;
+    min-height: 100vh;
+}
+
+.todo-container{
+    width: 650px;
+    margin: 30px auto ;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.todo-container h1{
+    font-size: 30px;
+    margin: 15px;
+    padding: 20px;
+}
+
+.todo-container .add-task{
+    width: 600px;
+    margin: 15px;
+    margin-top: -20px;
+    padding: 20px;
+    display: flex;
+}
+
+.todo-container .add-task input{
+    height: 55px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+}
+
+.todo-container .add-task input[type="text"]{
+    width: 450px;
+    background-color: #eee;
+    padding-left: 20px;
+    caret-color: #ff6b4a;
+}
+
+.todo-container .add-task input[type="submit"]{
+    width: 170px;
+    background-color: #ff6b4a;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-left: -50px;
+    cursor: pointer;
+}
+
+.todo-container .tasks{
+    width: 600px;
+    margin: 15px;
+    margin-top: -20px;
+    padding: 20px;
+}
+
+.todo-container .task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.todo-container .task  .task-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-container .task input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.todo-container .task input[type="checkbox"]:checked{
+    background-color: #ff6b4a;
+    border-color: #ff6b4a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.5 2.5l-8 8-3-3-1.5 1.5 4.5 4.5 9.5-9.5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+}
+
+.todo-container .task label{
+    cursor: pointer;
+}
+
+label.completed {
+    text-decoration: line-through;
+    color: #ccc;
+}
+.todo-container .tasks span{
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .todo-container {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    .todo-container .add-task {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .todo-container .add-task input[type="text"] {
+        width: 100%;
+    }
+
+    .todo-container .add-task input[type="submit"] {
+        width: 80px;
+        font-size: 14px;
+        margin-left: -40px;
+    }
+
+    .todo-container .tasks {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+}
