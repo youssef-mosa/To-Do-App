@@ -89,7 +89,12 @@ function addTask(){
     {
         textInput.style.border = "2px solid red";
         setTimeout(()=>{
-            window.alert("This Task already exist");
+            Swal.fire({
+                icon: "warning",
+                title: "Already Exists!",
+                text: "This task has already been added",
+                confirmButtonColor: "#ff6b4a"
+            });
             textInput.style.border = "none";
         },500);
         return;
