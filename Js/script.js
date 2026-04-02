@@ -51,9 +51,18 @@ function createElements(text ="",completed = false){
     }
 }
 function addTask(){
-    createElements();
-    saveTask();
-    textInput.value = "";
+    if(textInput.value.trim() !== "")
+    {
+        createElements();
+        saveTask();
+        textInput.value = "";
+    }
+    else{
+        textInput.style.border = "2px solid red";
+        setTimeout(()=>{
+            textInput.style.border = "none";
+        },1000);
+    }
 }
 
 function saveTask(){
