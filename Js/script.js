@@ -89,7 +89,7 @@ function addTask(){
     {
         textInput.style.border = "2px solid red";
         setTimeout(()=>{
-            window.alert("This Task has been already exist");
+            window.alert("This Task already exist");
             textInput.style.border = "none";
         },500);
         return;
