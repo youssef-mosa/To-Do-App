@@ -77,6 +77,23 @@ function createElements(text ="",completed = false){
     }
 }
 function addTask(){
+    let lables = document.querySelectorAll(".task label");
+    let dublicate = false;
+    lables.forEach(lable =>{
+        if(lable.textContent === textInput.value.trim())
+        {
+            dublicate = true;
+        }
+    });
+    if(dublicate)
+    {
+        textInput.style.border = "2px solid red";
+        setTimeout(()=>{
+            window.alert("This Task has been already exist");
+            textInput.style.border = "none";
+        },500);
+        return;
+    }
     if(textInput.value.trim() !== "")
     {
         createElements();
