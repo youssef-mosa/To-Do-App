@@ -4,7 +4,9 @@ let addInput =  document.querySelector(".add");
 let tasks =  document.querySelector(".tasks");
 
 
-
+window.onload = function(){
+    textInput.focus();
+}
 
 addInput.onclick = addTask;
 
