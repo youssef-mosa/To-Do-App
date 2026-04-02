@@ -53,11 +53,22 @@ body{
     cursor: pointer;
 }
 
+.todo-container .add-task input[type="submit"]:hover{
+    background-color: #d44424;
+}
+
 .todo-container .tasks{
     width: 600px;
     margin: 15px;
     margin-top: -20px;
     padding: 20px;
+    min-height: 150px;
+}
+
+.todo-container .tasks .no-tasks{
+    text-align: center;
+    font-size: 18px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .todo-container .task{
@@ -104,6 +115,97 @@ label.completed {
 }
 .todo-container .tasks span{
     cursor: pointer;
+}
+
+/* bar tasks */
+.bar-tasks{
+    width: 650px;
+    margin: -20px auto 15px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.bar-tasks .count-tasks,
+.bar-tasks .count-completed{
+    text-align: center;
+    border-left: 3px solid #ff6b4a;
+    padding: 10px 30px;
+}
+.bar-tasks .count-completed{
+    border-left: 3px solid rgb(8, 212, 8);
+}
+.bar-tasks .count-completed span{
+    color: #2ecc71;
+}
+
+.bar-tasks p{
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.bar-tasks span{
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6b4a;
+}
+
+/* btn all */
+.btn-All{
+    width: 650px;
+    margin: 0 auto 30px;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+}
+
+.btn-All button{
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.btn-All .complete-All{
+    background-color: #5563c1;
+    color: white;
+}
+
+.btn-All .complete-All:hover{
+    background-color: #4657c2;
+}
+
+.btn-All .Remove-All{
+    background-color: #ff6b4a;
+    color: white;
+}
+
+.btn-All .Remove-All:hover{
+    background-color: #d44424;
+}
+
+.no-tasks{
+    text-align: center;
+    color: #aaa;
+    font-size: 15px;
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .bar-tasks,
+    .btn-All{
+        width: 95%;
+    }
 }
 
 @media (max-width: 768px) {

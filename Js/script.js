@@ -8,9 +8,31 @@ window.onload = function(){
     textInput.focus();
 }
 
+function checkEmpty(){
+    if(tasks.children.length === 0)
+    {
+        let noTasks = document.createElement("p");
+        noTasks.classList.add("no-tasks");
+        noTasks.textContent = "No Tasks To Show";
+        tasks.appendChild(noTasks);
+    }
+}
+
+function updateCount(){
+    let allTasks = document.querySelectorAll(".task");
+    let countTasks =document.querySelector(".count-tasks span");
+    let countComplete =document.querySelector(".count-completed span");
+    let completed = document.querySelectorAll(".task label.completed");
+    countTasks.textContent = allTasks.length;
+    countComplete.textContent = completed.length;
+}
+
 addInput.onclick = addTask;
 
 function createElements(text ="",completed = false){
+    let noTasks = document.querySelector(".no-tasks");
+    if(noTasks) noTasks.remove();
+
     let task = document.createElement("div");
     let taskLeft = document.createElement("div");
     let checkbox = document.createElement("input");
@@ -37,7 +59,9 @@ function createElements(text ="",completed = false){
     //span onclick
     span.onclick = function (){
         task.remove();
-        saveTask()
+        saveTask();
+        checkEmpty();
+        updateCount();
     }
     //check localStorge
     if(completed){
@@ -47,13 +71,17 @@ function createElements(text ="",completed = false){
     //checkbox change
     checkbox.onchange = function(){
         label.classList.toggle("completed");
-        saveTask()
+        saveTask();
+        updateCount();
+        completeAll();
     }
 }
 function addTask(){
     if(textInput.value.trim() !== "")
     {
         createElements();
+        checkEmpty();
+        updateCount()
         saveTask();
         textInput.value = "";
     }
@@ -82,6 +110,31 @@ function loadTask(){
             createElements(task.text,task.completed);
         });
     }
+    checkEmpty();
+    updateCount();
 }
+
+let btnComplete = document.querySelector(".complete-All");
+btnComplete.onclick = function(){
+    let checkboxs = document.querySelectorAll(".task input[type='checkbox']");
+    checkboxs.forEach(check =>{
+        check.checked = true;
+        check.nextElementSibling.classList.add("completed");
+    })
+    saveTask();
+    updateCount();
+}
+
+let btnRemove = document.querySelector(".Remove-All");
+btnRemove.onclick = function(){
+    let allTasks = document.querySelectorAll(".task");
+    allTasks.forEach(task =>{
+        task.remove();
+    })
+    saveTask();
+    updateCount();
+    checkEmpty();
+}
+
 
 loadTask();
